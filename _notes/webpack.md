@@ -30,5 +30,6 @@ module.exports = config;
   - babel-core: transpile code 
   - babel-preset-env: rule set for telling babel how to turn code into ES5 code
 
-  - css-loader : deal css imports
-  - style-loader: takes css imports and adds them to the html document
+  - css-loader : read css imports and generate css in bundle.js
+  - style-loader: takes css imports and adds them to the html document by using "addStylesToDom"
+  

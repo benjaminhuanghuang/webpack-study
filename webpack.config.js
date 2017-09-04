@@ -1,5 +1,6 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 const config = {
   entry: "./src/index.js", // relative path
   output: {
@@ -10,7 +11,10 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        // use: ["style-loader", "css-loader"]    // style-loader puts css into bundle.js
+        use: ExtractTextPlugin.extract({
+          use: "css-loader"
+        })
       },
       {
         test: /\.js$/,
@@ -18,7 +22,9 @@ const config = {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin("dist/style.css")]
+  plugins: [
+    new ExtractTextPlugin("style.css") // output file to style.css
+  ]
 };
 
 module.exports = config;
