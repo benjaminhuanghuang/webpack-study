@@ -1,4 +1,11 @@
 .vscode/
+*.lock
+*-lock.json
+
+dist/
+build/
+
+build.js
 
 # Logs
 logs
