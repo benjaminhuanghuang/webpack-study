@@ -5,7 +5,8 @@ const config = {
   entry: "./src/index.js", // relative path
   output: {
     path: path.resolve(__dirname, "build"), // absolute path
-    filename: "./bundle.js"
+    filename: "bundle.js",
+    publicPath:"build/"
   },
   module: {
     rules: [
@@ -18,7 +19,18 @@ const config = {
       },
       {
         test: /\.js$/,
-        use: "babel-loader"
+        use: "babel-loader",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: { limit: 40000}
+          },
+          "image-webpack-loader"
+        ]
       }
     ]
   },
