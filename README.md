@@ -9,4 +9,9 @@
     $ npm init
     $ npm install bootstrap --save
 
-## Usage
+## Key points
+- web dev server
+- config for defferent env
+- TypeScript
+- SCSS
+- HTML
